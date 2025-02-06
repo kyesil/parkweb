@@ -5,12 +5,12 @@
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [Postgres](https://www.postgresql.org/)
 - **ORM**: [Drizzle](https://orm.drizzle.team/)
+- **Package Manager**: [Bun](https://bun.sh/)
+- **UI Library**: [Material-UI (MUI)](https://mui.com/)
 
 ## Getting Started
 
 ```bash
-git clone https://github.com/vercel/postgres-next-starter
-cd postgres-next-starter
 bun install
 ```
 

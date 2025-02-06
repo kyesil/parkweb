@@ -12,20 +12,24 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "4.0.1",
-    "@types/node": "^22.12.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.3",
+    "@mui/material": "^6.4.3",
+    "@tailwindcss/postcss": "4.0.3",
+    "@types/node": "^22.13.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "dotenv": "^16.4.7",
     "drizzle-kit": "^0.30.4",
-    "drizzle-orm": "^0.39.1",
+    "drizzle-orm": "^0.39.2",
     "drizzle-seed": "^0.3.1",
     "lucide-react": "^0.474.0",
     "next": "15.1.6",
     "postgres": "^3.4.5",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "tailwindcss": "4.0.1",
+    "tailwindcss": "4.0.3",
     "typescript": "^5.7.3",
     "zod": "^3.24.1"
   }

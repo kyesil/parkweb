@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
-import { Geist_Mono } from 'next/font/google';
+import { Geist_Mono, Inter, Roboto } from 'next/font/google';
 import './globals.css';
 
 const geistMono = Geist_Mono({ subsets: ['latin'] });
+const roboto = Roboto({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Todo List',
@@ -16,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistMono.className} bg-gray-900 text-gray-200`}>
+      <body className={`${geistMono.className} ${roboto.className} bg-gray-900 text-gray-200`}>
         {children}
       </body>
     </html>

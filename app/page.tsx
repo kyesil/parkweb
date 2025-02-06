@@ -1,5 +1,7 @@
 import { getTodos } from '@/db/queries';
 import TodoList from './todo-list';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
 
 // This will be replaced by 'use cache' soon
 export const dynamic = 'force-static';

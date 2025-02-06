@@ -1,17 +1,20 @@
-'use client';
+"use client";
 
-import { useActionState } from 'react';
-import { addTodo, deleteTodo } from './actions';
-import { Loader2, Plus, Trash2 } from 'lucide-react';
-import { Todo } from '@/db/queries';
+import { useActionState } from "react";
+import { addTodo, deleteTodo } from "./actions";
+import { Loader2, Plus, Trash2 } from "lucide-react";
+import { Todo } from "@/db/queries";
+import { Button } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import DownloadingIcon from "@mui/icons-material/Downloading";
 
 export default function TodoList({ initialTodos }: { initialTodos: Todo[] }) {
   const [addState, addAction, isAddPending] = useActionState(addTodo, {
-    input: '',
-    message: '',
+    input: "",
+    message: "",
   });
   const [_, deleteAction] = useActionState(deleteTodo, {
-    message: '',
+    message: "",
   });
 
   return (
@@ -20,10 +23,17 @@ export default function TodoList({ initialTodos }: { initialTodos: Todo[] }) {
         <input
           type="text"
           name="todo"
-          defaultValue={addState.input || ''}
+          defaultValue={addState.input || ""}
           placeholder="Add a new todo"
           className="flex-grow mr-2 px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-600 text-gray-200 text-base"
         />
+        <Button type="submit" disabled={isAddPending} variant="contained">
+          {isAddPending ? (
+            <DownloadingIcon className="animate-spin" />
+          ) : (
+            <AddIcon />
+          )}
+        </Button>
         <button
           type="submit"
           disabled={isAddPending}
