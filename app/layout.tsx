@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { Geist_Mono, Inter, Roboto } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import './globals.css';
+import ThemeProvider from './components/ThemeProvider';
 
-const geistMono = Geist_Mono({ subsets: ['latin'] });
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
@@ -10,8 +10,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Todo List',
-  description: 'A simple todo list application',
+  title: 'Sale Domain',
+  description: 'Make an Offer For this Domain',
 };
 
 export default function RootLayout({
@@ -20,9 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${geistMono.className} ${roboto.className} bg-gray-900 text-gray-200`}>
-        {children}
+    <html lang="en" className="dark">
+      <body className={roboto.className + " bg-gray-900 text-gray-200"} >
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

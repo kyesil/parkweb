@@ -3,25 +3,25 @@
 import { revalidatePath } from 'next/cache';
 import { eq } from 'drizzle-orm';
 import { db } from '@/db/drizzle';
-import { todos } from '@/db/schema';
+import { offers } from '@/db/schema';
 
-export async function addTodo(_: any, formData: FormData) {
-  const text = formData.get('todo') as string;
 
-  if (text.trim()) {
-    await db.insert(todos).values({ text });
-    revalidatePath('/');
-    return { message: 'Todo added successfully', input: '' };
-  }
-
-  return { message: 'Todo cannot be empty', input: text };
+export async function saveOffer(offer: any) {
+  return await db.insert(offers).values(offer);
 }
 
-export async function deleteTodo(_: any, formData: FormData) {
-  const id = formData.get('id') as string;
+export async function verifyOffer(verificationCode: string) {
+  const offer = await db
+    .select()
+    .from(offers)
+    .where(eq(offers.verificationCode, verificationCode))
+    .limit(1);
 
-  await db.delete(todos).where(eq(todos.id, id));
+  if (!offer || offer.length === 0) {
+    throw new Error('Offer not found');
+  }
 
-  revalidatePath('/');
-  return { message: 'Todo deleted successfully' };
+  await db.update(offers).set({ isVerified: true }).where(eq(offers.id, offer[0].id));
+
+  await revalidatePath('/api/offers');
 }

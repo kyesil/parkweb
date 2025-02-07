@@ -1,4 +1,4 @@
-# Next.js and Postgres Starter Template
+The goal of the project is to create a platform where users can park domain names and publish them. Visitors who land on a parked domain should see a form where they can make an offer for that domain. The form should require email verification before the offer can be submitted. Once an offer is made, the domain owner should receive an email notification.
 
 ## Tech Stack
 
@@ -7,6 +7,10 @@
 - **ORM**: [Drizzle](https://orm.drizzle.team/)
 - **Package Manager**: [Bun](https://bun.sh/)
 - **UI Library**: [Material-UI (MUI)](https://mui.com/)
+- **Mail Sender Service**: [resend](https://resend.com/)
+
+## Nextjs  Folder Routing 
+- /app/ folder routing
 
 ## Getting Started
 
