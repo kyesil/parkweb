@@ -15,7 +15,7 @@ export type Domain = Partial<InferSelectModel<typeof domains>>;
 // Teklifler tablosu
 export const offers = pgTable('offers', {
   id: serial('id').primaryKey(),
-  domain: varchar('domain', { length: 255 }).references(() => domains.name),
+  domain: varchar('domain', { length: 255 }).notNull(),
   email: varchar('email', { length: 255 }).notNull(),
   amount: integer('amount').notNull(),
   message: varchar('message',{length: 255}),

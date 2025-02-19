@@ -1,5 +1,5 @@
 {
-  "id": "c8f9277b-fcbd-4fd1-bc33-730c0074ae72",
+  "id": "54baf65e-a2d7-4607-877d-107ab37999d3",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -83,7 +83,7 @@
           "name": "domain",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "email": {
           "name": "email",
@@ -138,21 +138,7 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "offers_domain_domains_name_fk": {
-          "name": "offers_domain_domains_name_fk",
-          "tableFrom": "offers",
-          "tableTo": "domains",
-          "columnsFrom": [
-            "domain"
-          ],
-          "columnsTo": [
-            "name"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
