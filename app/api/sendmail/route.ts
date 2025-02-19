@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const { email, verificationCode, domainName } = await request.json();
-
+    return Response.json({ success: true });
     const { data, error } = await resend.emails.send({
       from: 'Domain Park <noreply@your-domain.com>',
       to: email,

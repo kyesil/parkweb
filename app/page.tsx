@@ -24,7 +24,7 @@ export const dynamic = "force-static";
 
 export default function Home() {
   const [formData, setFormData] = useState({
-    domainName: "domain",
+    domainName: "",
     email: "",
     amount: "0",
     message: "",

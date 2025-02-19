@@ -15,28 +15,24 @@ export async function getDomainByName(name: string) {
 }
 
 export async function createOffer({
-  domainName,
+  domain,
   email,
   amount,
   message,
   verificationCode,
   verificationExpiry,
 }: {
-  domainName: string;
+  domain: string;
   email: string;
   amount: number;
   message?: string;
   verificationCode: string;
   verificationExpiry: Date;
 }) {
-  const domain = await getDomainByName(domainName);
-  
-  if (!domain || domain.length === 0) {
-    throw new Error('Domain not found');
-  }
+
 
   return await db.insert(offers).values({
-    domainId: domain[0].id,
+    domain,
     email,
     amount,
     message,
