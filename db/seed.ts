@@ -89,7 +89,7 @@ async function main() {
     
     for (let i = 0; i < numberOfOffers; i++) {
       const offer = {
-        domainId: domain.id,
+        domain: domain.name,
         email: `offer${i + 1}_${domain.name.replace(/\./g, '_')}@example.com`,
         amount: Math.floor(domain.price??0 * (0.5 + Math.random())), // Domain fiyatının %50-150'si arası
         message: `I'm interested in purchasing ${domain.name}. This is offer #${i + 1}.`,

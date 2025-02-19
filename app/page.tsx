@@ -90,7 +90,7 @@ export default function Home() {
       });
       // Formu temizle
       setFormData({
-        domainName: "",
+        domainName: formData.domainName,
         email: "",
         amount: "0",
         message: "",
