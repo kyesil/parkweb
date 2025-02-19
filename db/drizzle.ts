@@ -9,7 +9,7 @@ dotenv.config();
 const connectionString = process.env.POSTGRES_URL!;
 
 // Create the connection
-const client = postgres(connectionString, { max: 1 });
+export const client = postgres(connectionString, { max: 1 });
 
 // Create the drizzle database instance
 export const db = drizzle(client, { schema });

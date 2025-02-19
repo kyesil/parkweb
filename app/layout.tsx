@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
+
 import ThemeProvider from './components/ThemeProvider';
 
 const roboto = Roboto({
@@ -14,11 +15,13 @@ export const metadata: Metadata = {
   description: 'Make an Offer For this Domain',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+
   return (
     <html lang="en" className="dark">
       <body className={roboto.className + " bg-gray-900 text-gray-200"} >

@@ -1,3 +1,4 @@
+import { InferSelectModel } from 'drizzle-orm';
 import { pgTable, serial, text, timestamp, varchar, boolean, integer } from 'drizzle-orm/pg-core';
 
 // Domain tablosu
@@ -10,7 +11,7 @@ export const domains = pgTable('domains', {
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow(),
 });
-
+export type Domain = Partial<InferSelectModel<typeof domains>>;
 // Teklifler tablosu
 export const offers = pgTable('offers', {
   id: serial('id').primaryKey(),
@@ -18,8 +19,11 @@ export const offers = pgTable('offers', {
   email: varchar('email', { length: 255 }).notNull(),
   amount: integer('amount').notNull(),
   message: text('message'),
-  verificationCode: varchar('verification_code', { length: 6 }),
+  verificationCode: varchar('verification_code', { length: 5 }),
+  verificationExpiry: timestamp('verification_expiry'),
   isVerified: boolean('is_verified').default(false),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow(),
 });
+
+export type Offer = InferSelectModel<typeof offers>;
