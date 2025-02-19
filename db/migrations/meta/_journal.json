@@ -5,15 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1738909875611,
-      "tag": "0000_parallel_thena",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1739190988967,
-      "tag": "0001_sloppy_triathlon",
+      "when": 1739979840459,
+      "tag": "0000_tranquil_doomsday",
       "breakpoints": true
     }
   ]

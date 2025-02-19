@@ -1,5 +1,5 @@
 {
-  "id": "0d7ba489-ce68-4e61-aeef-a5a96b2f37ba",
+  "id": "c8f9277b-fcbd-4fd1-bc33-730c0074ae72",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -79,9 +79,9 @@
           "primaryKey": true,
           "notNull": true
         },
-        "domain_id": {
-          "name": "domain_id",
-          "type": "integer",
+        "domain": {
+          "name": "domain",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": false
         },
@@ -99,13 +99,19 @@
         },
         "message": {
           "name": "message",
-          "type": "text",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": false
         },
         "verification_code": {
           "name": "verification_code",
-          "type": "varchar(6)",
+          "type": "varchar(5)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "verification_expiry": {
+          "name": "verification_expiry",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false
         },
@@ -133,15 +139,15 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "offers_domain_id_domains_id_fk": {
-          "name": "offers_domain_id_domains_id_fk",
+        "offers_domain_domains_name_fk": {
+          "name": "offers_domain_domains_name_fk",
           "tableFrom": "offers",
           "tableTo": "domains",
           "columnsFrom": [
-            "domain_id"
+            "domain"
           ],
           "columnsTo": [
-            "id"
+            "name"
           ],
           "onDelete": "no action",
           "onUpdate": "no action"

@@ -15,10 +15,10 @@ export type Domain = Partial<InferSelectModel<typeof domains>>;
 // Teklifler tablosu
 export const offers = pgTable('offers', {
   id: serial('id').primaryKey(),
-  domainId: integer('domain_id').references(() => domains.id),
+  domain: varchar('domain', { length: 255 }).references(() => domains.name),
   email: varchar('email', { length: 255 }).notNull(),
   amount: integer('amount').notNull(),
-  message: text('message'),
+  message: varchar('message',{length: 255}),
   verificationCode: varchar('verification_code', { length: 5 }),
   verificationExpiry: timestamp('verification_expiry'),
   isVerified: boolean('is_verified').default(false),

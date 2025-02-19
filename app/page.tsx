@@ -26,7 +26,7 @@ export default function Home() {
   const [formData, setFormData] = useState({
     domainName: "domain",
     email: "",
-    amount: "100",
+    amount: "0",
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -56,7 +56,7 @@ export default function Home() {
 
     try {
       await saveOffer({
-        domainName: formData.domainName,
+        domain: formData.domainName,
         email: formData.email,
         amount: parseInt(formData.amount),
         message: formData.message,
@@ -92,7 +92,7 @@ export default function Home() {
       setFormData({
         domainName: "",
         email: "",
-        amount: "100",
+        amount: "0",
         message: "",
       });
     } catch (error) {
@@ -114,7 +114,7 @@ export default function Home() {
           align="center"
           color="primary"
         >
-          Make an Offer for this Domain
+          Make an Offer for {formData.domainName}
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4 }}>

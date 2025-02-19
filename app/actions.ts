@@ -29,10 +29,10 @@ export async function saveOffer(offer: Offer) {
   const { data, error } = await resend.emails.send({
     from: 'Domain Offers <noreply@voltar.uk>',
     to: offer.email,
-    subject: `Verification Code for {'localhost'} Offer`,
+    subject: `Verification Code for ${offer.domain} Offer`,
     html: `
     <div>
-    <h2>Verify Your Offer for ${'localhost'}</h2>
+    <h2>Verify Your Offer for ${offer.domain}</h2>
         <p>Your verification code is:</p>
         <div style="background-color: #f4f4f4; padding: 20px; text-align: center; font-size: 24px; letter-spacing: 5px; margin: 20px 0;">
           <strong>${offer.verificationCode}</strong>
