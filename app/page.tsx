@@ -31,7 +31,7 @@ export default function Home() {
   });
   const [loading, setLoading] = useState(false);
   const [verifyDialogOpen, setVerifyDialogOpen] = useState(false);
-  const [verificationCode, setVerificationCode] = useState("");
+  const [verifyCode, setVerifyCode] = useState("");
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
@@ -65,7 +65,7 @@ export default function Home() {
       setVerifyDialogOpen(true);
       setSnackbar({
         open: true,
-        message: "Please check your email for the verification code!",
+        message: "Please check your email for the verify code!",
         severity: "success",
       });
     } catch (error: any) {
@@ -81,11 +81,11 @@ export default function Home() {
 
   const handleVerifyCode = async () => {
     try {
-      await verifyOffer(verificationCode);
+      await verifyOffer(formData.email, verifyCode);
       setVerifyDialogOpen(false);
       setSnackbar({
         open: true,
-        message: "Offer verified successfully!",
+        message: "Offer verified successfully! We will contact you soon.",
         severity: "success",
       });
       // Formu temizle
@@ -98,7 +98,7 @@ export default function Home() {
     } catch (error) {
       setSnackbar({
         open: true,
-        message: "Invalid verification code. Please try again.",
+        message: "Invalid verify code. Please try again.",
         severity: "error",
       });
     }
@@ -198,15 +198,24 @@ export default function Home() {
           }
         }}
       >
-        <DialogTitle>Enter Verification Code</DialogTitle>
+        <DialogTitle>Enter Verify Code</DialogTitle>
         <DialogContent>
+        <TextField
+            margin="dense"
+            label="Email"
+            fullWidth
+            type="email"
+            value={formData.email}
+            disabled={true}
+            variant="outlined"
+          />
           <TextField
             autoFocus
             margin="dense"
-            label="Verification Code"
+            label="Verify Code"
             fullWidth
-            value={verificationCode}
-            onChange={(e) => setVerificationCode(e.target.value)}
+            value={verifyCode}
+            onChange={(e) => setVerifyCode(e.target.value)}
             variant="outlined"
           />
         </DialogContent>
